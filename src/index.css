@@ -305,6 +305,38 @@ main {
 .button.primary:hover {
   background: var(--cyan);
 }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 860px;
+  margin: 56px 0 0;
+  border-top: 1px solid var(--line);
+}
+.hero-stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 20px 20px 0 0;
+}
+.hero-stats div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+.hero-stats dd {
+  margin: 0;
+  font: 500 clamp(1.5rem, 2.4vw, 2.2rem) / 1 Space Grotesk;
+  letter-spacing: -0.03em;
+}
+.hero-stats dt {
+  color: #7d849b;
+  font: 400 9px/1.5 DM Mono;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+a.button {
+  text-decoration: none;
+}
 .hero-planet {
   position: absolute;
   z-index: 1;
@@ -535,7 +567,7 @@ main {
   left: 12%;
 }
 .about-copy .section-heading h2 {
-  font-size: clamp(3.5rem, 7vw, 8rem);
+  font-size: clamp(3.2rem, 5.6vw, 6.6rem);
   white-space: nowrap;
 }
 .about-lead {
@@ -662,21 +694,33 @@ main {
   font-size: 12px;
   line-height: 1.75;
 }
-.exp-reveal {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: 0.45s ease;
+.exp-points {
+  max-width: 720px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
 }
-.experience-card:hover .exp-reveal {
-  max-height: 90px;
-  opacity: 1;
-  margin-top: 18px;
+.exp-points li {
+  position: relative;
+  padding-left: 22px;
+  color: #a2a9be;
+  font-size: 13.5px;
+  line-height: 1.7;
 }
-.exp-reveal strong {
-  color: #626a82;
-  font: 400 8px DM Mono;
-  letter-spacing: 0.14em;
+.exp-points li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 10px;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 6px var(--cyan);
+}
+.experience-card:hover .exp-main h3 {
+  color: #fff;
 }
 .tags {
   display: flex;
@@ -1454,6 +1498,20 @@ footer > button {
 }
 
 @media (max-width: 600px) {
+  .scroll-mark {
+    display: none;
+  }
+  .hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 40px;
+  }
+  .hero-stats div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .exp-points li {
+    font-size: 13px;
+  }
   .cursor-dot,
   .cursor-halo {
     display: none;

@@ -125,103 +125,182 @@ const contact = {
   location: "Bellflower, California",
 };
 
+const resumeUrl = `${import.meta.env.BASE_URL}Patrick_Bootchot_Resume.pdf`;
+
+const heroStats = [
+  { value: "650+", label: "Commits shipped at Office Dojo" },
+  { value: "2,500+", label: "Automated tests maintained" },
+  { value: "5", label: "Codebases contributed to" },
+  { value: "B.S.", label: "Computer Science, CSULB" },
+];
+
 const experiences = [
   {
-    period: "NOW",
-    role: "Full-Stack Developer",
-    company: "INTERVIEWPREPAI · IN DEVELOPMENT",
-    text: "Building an AI interview preparation platform that helps users get ready for software engineering interviews through AI-assisted practice sessions and personalized feedback.",
-    impact:
-      "AI-generated questions, behavioral and technical interview simulations, secure authentication, and progress tracking.",
-    tech: ["React", "ASP.NET Core", "C#", "SQL Server", "OpenAI API"],
+    period: "SEP 2026 — PRESENT",
+    role: "Fullstack Developer",
+    company: "OFFICE DOJO CRM SYSTEMS · LOS ANGELES, CA · ON-SITE",
+    points: [
+      "Own day-to-day development and production support for a real estate CRM and subscription platform (Node.js/Express, MySQL, Redis, React), taking over maintenance from an international contract team.",
+      "Built an end-to-end lead pipeline from sales rep leads to booked appointments to paying subscribers. Appointments close automatically when Stripe confirms payment, subscribers are credited to the right rep through referral links, and lead notes are kept as permanent customer history.",
+      "Run deployments on AWS (EC2, S3, CloudFront, Parameter Store) through GitHub Actions CI/CD with database migrations, and extend a 2,500+ test Jest/Vitest suite with every change.",
+      "Built a business-card lead capture app with Flask, Amazon Textract OCR, S3, DynamoDB, and SES, including multi-step owner sign-up, location-based access, and automated follow-up email.",
+      "Shipped client portal features including guest showing requests, saved homes with QR sharing, listing alerts, home value reports, and a full mobile responsiveness pass.",
+      "Secured file uploads by serving any non-preview file type as a download, preventing stored cross-site scripting (XSS) while still allowing all attachment types.",
+    ],
+    tech: ["React", "Node.js", "Express", "MySQL", "Redis", "Stripe", "AWS", "GitHub Actions", "Jest", "Vitest", "Flask"],
   },
   {
-    period: "CSULB",
-    role: "B.S. Computer Science",
-    company: "CALIFORNIA STATE UNIVERSITY, LONG BEACH",
-    text: "Built full-stack, distributed, and game projects as part of collaborative teams, from a student forum platform to a socket-based chat system and a Unity adventure game.",
-    impact:
-      "Shipped CourseHub, a Distributed Chatting System, and Keys To The Kingdom with classmates.",
-    tech: ["Flask", "React", "MongoDB", "Python", "Unity"],
+    period: "JUL 2026 — PRESENT",
+    role: "Full Stack Developer",
+    company: "INTERVIEWPREPAI · PERSONAL PROJECT · IN PROGRESS",
+    points: [
+      "Designing a scalable full-stack interview preparation platform with a React frontend and an ASP.NET Core Web API backend.",
+      "Developing RESTful APIs for user authentication, resume analysis, coding practice, and AI-powered mock interviews.",
+      "Implementing secure authentication with AWS Cognito and JWT, and integrating AWS S3 for resume storage.",
+      "Designing a normalized PostgreSQL database and documenting the application's architecture, API structure, and ownership.",
+    ],
+    tech: ["React", "ASP.NET Core", "C#", "PostgreSQL", "AWS Cognito", "S3", "Docker"],
   },
   {
-    period: "PERSONAL",
-    role: "Independent Projects",
-    company: "SELF-DIRECTED BUILDS",
-    text: "Designing and shipping my own apps to keep learning new technologies, from real-time multiplayer games to personal productivity tools.",
-    impact:
-      "Built an online multiplayer Idiot card game with room codes and synced gameplay, plus a live journaling web app.",
-    tech: ["C#", "React", "Vite", "Sockets", "CSS"],
+    period: "AUG 2024 — NOV 2024",
+    role: "Full Stack Developer",
+    company: "COURSEHUB · TEAM PROJECT · CSULB",
+    points: [
+      "Developed a full-stack academic platform that lets students manage courses, share resources, and collaborate with classmates.",
+      "Used Flask and Supabase for authentication and sessions, issuing JWTs with 30-minute inactivity expiration, and MongoDB for user data, friendships, and messaging.",
+      "Implemented CRUD operations for posts, comments, and user profiles through RESTful API endpoints, keeping authentication, data access, and frontend concerns separate.",
+    ],
+    tech: ["React", "Tailwind CSS", "Flask", "Supabase Auth", "MongoDB", "JWT"],
+  },
+  {
+    period: "AUG 2022 — AUG 2025",
+    role: "Server, Customer Service & Cashier",
+    company: "TAMPOPO SUSHI AND RAMEN · CERRITOS, CA",
+    points: [
+      "Delivered high-volume customer service while accurately managing orders, payments, and customer requests in a fast-paced environment.",
+      "Communicated with customers and teammates to resolve issues, coordinate orders, and keep service efficient during peak hours.",
+    ],
+    tech: ["Customer Service", "Communication", "Teamwork"],
   },
 ];
 
 const skillGroups = [
   {
-    title: "Languages & Engines",
+    title: "Languages",
     code: "01",
-    accent: "cyan",
     items: [
       [
-        "C#",
-        "A primary language. Used for ASP.NET Core APIs, a real-time multiplayer card game server, and Unity gameplay.",
+        "JavaScript",
+        "My primary language at Office Dojo, used across React frontends and Node.js/Express services and tested with Jest and Vitest.",
+        "PROFESSIONAL",
       ],
       [
         "Python",
-        "A primary language. Used for Flask backends and a socket-based distributed chatting system.",
+        "Flask services for Office Dojo's lead capture app and pay portal, the CourseHub API, and a socket-based distributed chat system.",
+        "PROFESSIONAL + PROJECTS",
       ],
       [
-        "JavaScript",
-        "A primary language. Used to build React interfaces for nearly every project in my portfolio.",
+        "C#",
+        "ASP.NET Core Web APIs for InterviewPrepAI, a real-time multiplayer card game server, and Unity gameplay systems.",
+        "PROJECTS",
       ],
       [
-        "Unity",
-        "Built Keys To The Kingdom, an adventure game with combat, dialogue, inventory, and puzzle mechanics.",
+        "SQL",
+        "Schema design, versioned migrations, and production queries in MySQL and PostgreSQL, including read-only audit queries for billing data.",
+        "PROFESSIONAL",
+      ],
+      [
+        "HTML & CSS",
+        "Semantic, responsive layouts with Tailwind CSS and Sass, including a full mobile pass on Office Dojo's client portal.",
+        "PROFESSIONAL",
       ],
     ],
   },
   {
-    title: "Full-Stack Development",
+    title: "Frameworks",
     code: "02",
-    accent: "violet",
     items: [
       [
         "React",
-        "Built modern, responsive interfaces for InterviewPrepAI, CourseHub, My Daily Journal, and more.",
+        "Used daily at Office Dojo for the CRM and client portal (Redux Toolkit, TanStack Query, Zustand, React Hook Form) and in every personal project.",
+        "PROFESSIONAL",
+      ],
+      [
+        "Node.js & Express",
+        "REST APIs for the Office Dojo CRM with Sequelize, Socket.IO, BullMQ job queues, request validation, rate limiting, and Sentry monitoring.",
+        "PROFESSIONAL",
       ],
       [
         "ASP.NET Core",
-        "Building the backend for InterviewPrepAI with Entity Framework Core and secure authentication.",
+        "Web API backend for InterviewPrepAI with JWT authentication through AWS Cognito and a normalized PostgreSQL schema.",
+        "PROJECTS",
       ],
       [
-        "Flask & Django",
-        "Developed Python web backends, including the API layer for the CourseHub student forum.",
+        "Flask",
+        "Office Dojo's business-card lead capture app and pay portal backend, plus CourseHub's API with Supabase auth and JWT sessions.",
+        "PROFESSIONAL + PROJECTS",
       ],
       [
-        "Node.js",
-        "Built JavaScript server-side services and APIs alongside React front ends.",
+        "Next.js",
+        "Server-rendered React applications built with TypeScript and Tailwind CSS.",
+        "TOOLKIT",
+      ],
+    ],
+  },
+  {
+    title: "Cloud & DevOps",
+    code: "03",
+    items: [
+      [
+        "AWS",
+        "EC2, S3, CloudFront, and Parameter Store for the CRM; Textract, DynamoDB, and SES for lead capture; Cognito and S3 for InterviewPrepAI.",
+        "PROFESSIONAL",
+      ],
+      [
+        "GitHub Actions",
+        "CI/CD pipelines with automated tests, sharded Jest runs, database migrations, automatic staging deploys, and gated production releases.",
+        "PROFESSIONAL",
+      ],
+      [
+        "Testing",
+        "Jest, Vitest, Supertest, and Testing Library. I extend Office Dojo's 2,500+ test suite with every change I ship.",
+        "PROFESSIONAL",
+      ],
+      [
+        "Docker",
+        "Containerized development and deployment environments for InterviewPrepAI.",
+        "PROJECTS",
       ],
     ],
   },
   {
     title: "Data & Integrations",
-    code: "03",
-    accent: "amber",
+    code: "04",
     items: [
       [
-        "SQL Server",
-        "Modeling InterviewPrepAI's data with SQL Server and Entity Framework Core.",
-      ],
-      [
-        "MongoDB",
-        "Stored CourseHub's profiles, courses, and discussion threads with real-time updates via Supabase.",
+        "MySQL",
+        "The production database for the Office Dojo CRM, managed with Sequelize models and versioned migrations.",
+        "PROFESSIONAL",
       ],
       [
         "PostgreSQL",
-        "Designed relational schemas and queries for full-stack web applications.",
+        "A normalized relational schema for InterviewPrepAI's users, interview sessions, and resume data.",
+        "PROJECTS",
       ],
       [
-        "OpenAI API",
-        "Integrating AI-generated interview questions and personalized feedback into InterviewPrepAI.",
+        "Redis",
+        "Caching, rate limiting, BullMQ job queues, and the Socket.IO adapter for real-time CRM features.",
+        "PROFESSIONAL",
+      ],
+      [
+        "MongoDB",
+        "Document storage for CourseHub user profiles, friendships, and messaging.",
+        "PROJECTS",
+      ],
+      [
+        "Stripe & Payments",
+        "Subscription billing, trials, and webhooks. Appointments close automatically when Stripe confirms payment, alongside Authorize.Net card processing.",
+        "PROFESSIONAL",
       ],
     ],
   },
@@ -232,16 +311,16 @@ const projects = [
     name: "INTERVIEWPREPAI",
     kicker: "AI interview prep",
     description:
-      "A full-stack AI interview preparation platform currently in development. The application helps users prepare for software engineering interviews through AI-assisted practice sessions and personalized feedback.",
-    role: "Personal project · In development",
-    tech: ["React", "ASP.NET Core", "C#", "SQL Server", "Entity Framework Core", "OpenAI API"],
+      "A scalable full-stack interview preparation platform, currently in progress. A React frontend and an ASP.NET Core Web API power resume analysis, coding practice, and AI-powered mock interviews.",
+    role: "Personal project · In progress",
+    tech: ["React", "ASP.NET Core", "C#", "PostgreSQL", "AWS Cognito", "S3", "Docker"],
     features: [
-      "AI-generated interview questions",
-      "Behavioral interview practice",
-      "Technical interview simulations",
-      "Secure authentication",
-      "Progress tracking",
-      "Responsive web interface",
+      "AI-powered mock interviews",
+      "Resume analysis with S3 storage",
+      "Coding practice",
+      "AWS Cognito + JWT authentication",
+      "Normalized PostgreSQL schema",
+      "Documented API architecture",
     ],
     github: "https://github.com/looksorn789/InterviewPrepAi",
     demo: "",
@@ -250,13 +329,18 @@ const projects = [
   },
   {
     name: "COURSEHUB",
-    kicker: "Student forum",
+    kicker: "Academic platform",
     description:
-      "CourseHub is a student-driven forum platform where students can collaborate and assist one another with course materials.",
-    role: "Team project",
-    tech: ["Flask", "React", "MongoDB", "Supabase"],
-    features: ["Authentication", "Profiles", "Real-time updates", "Course discussions"],
-    github: "https://github.com/Elias0127/CourseHub",
+      "A full-stack academic platform that lets students manage courses, share resources, and collaborate with classmates, built with security and scalability in mind.",
+    role: "Team project · Full Stack Developer",
+    tech: ["React", "Tailwind CSS", "Flask", "Supabase Auth", "MongoDB", "JWT"],
+    features: [
+      "Supabase auth with JWT sessions",
+      "30-minute inactivity expiry",
+      "Friendships & messaging",
+      "Posts, comments & profile CRUD",
+    ],
+    github: "https://github.com/looksorn789/CourseHub",
     demo: "https://youtu.be/SAqRzDYyfaU",
     color: "#75e6ff",
     pos: ["44%", "5%"],
@@ -278,7 +362,7 @@ const projects = [
     name: "IDIOT CARD GAME",
     kicker: "Multiplayer card game",
     description:
-      "Online multiplayer implementation of the card game Idiot featuring special cards and synchronized gameplay.",
+      "An online multiplayer version of the card game Idiot, with special cards and synchronized gameplay.",
     role: "Personal project",
     tech: ["C#", "React", "Vite", "Sockets"],
     features: ["Host transfer", "Room codes", "Real-time gameplay", "Special card abilities"],
@@ -452,7 +536,7 @@ export default function App() {
           PB<span>.</span>
         </button>
         <div className="availability">
-          <i /> OPEN TO ENTRY-LEVEL ROLES <span>/ 2026</span>
+          <i /> OPEN TO NEW OPPORTUNITIES <span>/ LOS ANGELES · REMOTE</span>
         </div>
         <button
           className="mobile-menu"
@@ -487,40 +571,48 @@ export default function App() {
         <div className="hero-copy">
           <div className="eyebrow">
             <span />
-            WELCOME TO MY ORBIT
+            FULLSTACK DEVELOPER · LOS ANGELES, CA
           </div>
           <h1>
-            EXPLORING THE
+            ENGINEERING
             <br />
-            <em>DIGITAL</em> UNIVERSE.
+            <em>RELIABLE</em> SOFTWARE.
           </h1>
           <div className="hero-meta">
             <div>
               <strong>PATRICK BOOTCHOT</strong>
-              <span>FULL-STACK DEVELOPER</span>
+              <span>FULLSTACK DEVELOPER @ OFFICE DOJO</span>
             </div>
             <p>
-              I build modern, responsive web applications that combine clean design with practical
-              functionality.
+              I design, ship, and support full-stack web applications, from React interfaces to
+              Node.js and ASP.NET Core APIs, payment systems, and AWS deployments.
             </p>
           </div>
           <div className="hero-actions">
-            <button className="button primary" onClick={() => scrollTo("about")}>
-              EXPLORE MY UNIVERSE <Icon name="arrow" />
+            <button className="button primary" onClick={() => scrollTo("experience")}>
+              VIEW EXPERIENCE <Icon name="arrow" />
             </button>
-            <button className="button ghost" onClick={() => scrollTo("contact")}>
-              LET'S CONNECT
-            </button>
+            <a className="button ghost" href={resumeUrl} target="_blank" rel="noreferrer">
+              VIEW RESUME <Icon name="external" />
+            </a>
           </div>
+          <dl className="hero-stats">
+            {heroStats.map((stat) => (
+              <div key={stat.label}>
+                <dt>{stat.label}</dt>
+                <dd>{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
         <div className="scroll-mark">
-          <span>SCROLL TO EXPLORE</span>
+          <span>SCROLL</span>
           <i />
         </div>
       </section>
 
       <section id="about" className="section about-section">
-        <div className="section-number">01 / IDENTITY</div>
+        <div className="section-number">01 / ABOUT</div>
         <div className="about-layout">
           <div className="portrait-world reveal">
             <div className="portrait-orbit orbit-one">
@@ -538,30 +630,30 @@ export default function App() {
             <span className="orbit-label label-three">33° 53′ N</span>
           </div>
           <div className="about-copy">
-            <SectionTitle eyebrow="MY PLANET" title="PATRICK BOOTCHOT" />
+            <SectionTitle eyebrow="ABOUT ME" title="PATRICK BOOTCHOT" />
             <p className="about-lead reveal">
-              I build software that <em>delivers real value.</em>
+              I build dependable software for <em>real businesses and real users.</em>
             </p>
             <div className="bio-grid reveal">
               <p>
-                Hi! I'm Patrick (Pornthep Bootchot), a full-stack software developer with a
-                Bachelor's degree in Computer Science from California State University, Long Beach.
-                I've built front-end and back-end applications with React, ASP.NET Core, Flask,
-                Node.js, and Django, backed by databases like MongoDB and PostgreSQL. My primary
-                languages are C#, Python, and JavaScript.
+                I'm Patrick (Pornthep) Bootchot, a fullstack developer at Office Dojo in Los
+                Angeles. I own day-to-day development and production support for a real estate CRM
+                and subscription platform, shipping features across a React frontend, Node.js and
+                Express APIs, MySQL and Redis, Stripe billing, and AWS infrastructure.
               </p>
               <p>
-                I enjoy learning new technologies, solving challenging problems, and creating
-                software that delivers real value. I'm currently seeking an entry-level software
-                engineering opportunity where I can keep growing as a developer while contributing
-                to meaningful projects.
+                I hold a B.S. in Computer Science from California State University, Long Beach.
+                Outside of work, I'm building InterviewPrepAI, an AI-powered interview preparation
+                platform built with React, ASP.NET Core, and PostgreSQL. I care about clean
+                architecture, thorough testing, and code the next developer can easily maintain.
+                I'm open to new opportunities, whether full-time, part-time, contract, or freelance.
               </p>
             </div>
             <div className="fact-row reveal">
               <div>
                 <small>CURRENTLY</small>
-                <strong>Building InterviewPrepAI</strong>
-                <span>Open to entry-level roles</span>
+                <strong>Fullstack Developer</strong>
+                <span>Office Dojo · Los Angeles</span>
               </div>
               <div>
                 <small>BASED IN</small>
@@ -579,11 +671,11 @@ export default function App() {
       </section>
 
       <section id="experience" className="section experience-section">
-        <div className="section-number">02 / TRAJECTORY</div>
+        <div className="section-number">02 / EXPERIENCE</div>
         <SectionTitle
-          eyebrow="PROFESSIONAL ORBIT"
-          title="MISSIONS & MILESTONES"
-          copy="A journey through the education, teams, and projects that shaped me as a developer."
+          eyebrow="WORK EXPERIENCE"
+          title="EXPERIENCE"
+          copy="Professional roles and major builds, most recent first."
         />
         <div className="timeline">
           <div className="trajectory" />
@@ -597,11 +689,11 @@ export default function App() {
               <div className="exp-main">
                 <h3>{exp.role}</h3>
                 <h4>{exp.company}</h4>
-                <p>{exp.text}</p>
-                <div className="exp-reveal">
-                  <strong>MISSION IMPACT</strong>
-                  <p>{exp.impact}</p>
-                </div>
+                <ul className="exp-points">
+                  {exp.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
                 <div className="tags">
                   {exp.tech.map((t) => (
                     <span key={t}>{t}</span>
@@ -614,11 +706,11 @@ export default function App() {
       </section>
 
       <section id="skills" className="section skills-section">
-        <div className="section-number">03 / CAPABILITIES</div>
+        <div className="section-number">03 / SKILLS</div>
         <SectionTitle
-          eyebrow="TECHNOLOGY CONSTELLATION"
-          title="TOOLS IN MY ORBIT"
-          copy="A connected ecosystem of technologies, platforms, and solutions I use to bring digital products to life."
+          eyebrow="TECHNICAL SKILLS"
+          title="TECHNICAL TOOLKIT"
+          copy="The languages, frameworks, and infrastructure I use to design, ship, and run production software. Select a technology to see where I've used it."
         />
         <div className="skills-layout reveal">
           <div className="skill-groups">
@@ -657,18 +749,18 @@ export default function App() {
             <h3>{selectedSkill[0]}</h3>
             <p>{selectedSkill[1]}</p>
             <div className="detail-signal">
-              <span /> HANDS-ON PROJECT EXPERIENCE
+              <span /> {selectedSkill[2]} EXPERIENCE
             </div>
           </aside>
         </div>
       </section>
 
       <section id="projects" className="section projects-section">
-        <div className="section-number">04 / SELECTED WORK</div>
+        <div className="section-number">04 / PROJECTS</div>
         <SectionTitle
-          eyebrow="GALAXY OF CREATIONS"
-          title="PROJECTS WORTH EXPLORING"
-          copy="Select a signal to discover the thinking, technology, and outcomes behind each build."
+          eyebrow="SELECTED PROJECTS"
+          title="SELECTED WORK"
+          copy="Personal and team builds outside of my day job. Select a project to see its tech stack, key features, and source code."
         />
         <div className="galaxy reveal">
           <svg
@@ -702,30 +794,28 @@ export default function App() {
             </button>
           ))}
           <div className="galaxy-caption">
-            INTERACTIVE STAR MAP{" "}
-            <span>{String(projects.length).padStart(2, "0")} DISCOVERIES</span>
+            SELECT A PROJECT FOR DETAILS{" "}
+            <span>{String(projects.length).padStart(2, "0")} PROJECTS</span>
           </div>
         </div>
       </section>
 
       <section id="contact" className="section contact-section">
         <div className="contact-halo" />
-        <div className="section-number">05 / TRANSMISSION</div>
+        <div className="section-number">05 / CONTACT</div>
         <div className="contact-layout">
           <div className="contact-copy">
-            <SectionTitle
-              eyebrow="ESTABLISH COMMUNICATION"
-              title="LET'S BUILD SOMETHING OUT OF THIS WORLD."
-            />
+            <SectionTitle eyebrow="GET IN TOUCH" title="LET'S WORK TOGETHER." />
             <p className="reveal">
-              Whether you're looking for a software developer, have a project in mind, or simply
-              want to connect, I'd be happy to hear from you.
+              I'm open to new opportunities of all kinds. If you have a role, a project, or just
+              want to talk, I'd love to hear from you. I'm happy to connect with recruiters, hiring
+              managers, founders, and teams of any size.
             </p>
             <div className="opportunity-list reveal">
               {[
-                "Entry-level software engineering roles",
-                "Full-time opportunities",
-                "Project collaborations",
+                "Full-time, part-time & internship roles",
+                "Contract & freelance work",
+                "On-site, hybrid, or remote",
               ].map((item) => (
                 <span key={item}>
                   <i />
@@ -734,7 +824,7 @@ export default function App() {
               ))}
             </div>
             <a className="direct-email reveal" href={`mailto:${contact.email}`}>
-              <small>DIRECT CHANNEL</small>
+              <small>EMAIL</small>
               <strong>{contact.email}</strong>
               <Icon name="arrow" />
             </a>
@@ -743,11 +833,16 @@ export default function App() {
               <strong>{contact.phone}</strong>
               <Icon name="arrow" />
             </a>
+            <a className="direct-email reveal" href={resumeUrl} target="_blank" rel="noreferrer">
+              <small>RESUME · PDF</small>
+              <strong>View my resume</strong>
+              <Icon name="external" />
+            </a>
           </div>
           <form className="contact-form reveal" onSubmit={submit}>
             <div className="form-top">
-              <span>NEW TRANSMISSION</span>
-              <small>SECURE CHANNEL / 256-BIT</small>
+              <span>SEND A MESSAGE</span>
+              <small>OPENS IN YOUR EMAIL APP</small>
             </div>
             <label>
               <span>FULL NAME</span>
@@ -776,7 +871,7 @@ export default function App() {
                 required
                 minLength={10}
                 rows={5}
-                placeholder="Tell me a little about your mission..."
+                placeholder="Tell me about the role or project..."
               />
             </label>
             <button className="button primary submit-button" type="submit">
@@ -805,7 +900,7 @@ export default function App() {
           PB<span>.</span>
         </div>
         <p>
-          DESIGNED & ENGINEERED WITH CURIOSITY
+          DESIGNED & BUILT IN LOS ANGELES
           <br />
           <span>© 2026 PATRICK BOOTCHOT</span>
         </p>
@@ -820,7 +915,7 @@ export default function App() {
             <Icon name="github" />
           </a>
         </div>
-        <button onClick={() => scrollTo("home")}>RETURN TO ORIGIN ↑</button>
+        <button onClick={() => scrollTo("home")}>BACK TO TOP ↑</button>
       </footer>
 
       {activeProject !== null && (
@@ -869,7 +964,7 @@ export default function App() {
                   <strong>{projects[activeProject].role}</strong>
                 </div>
                 <div>
-                  <span>CORE SYSTEMS</span>
+                  <span>TECH STACK</span>
                   <strong>{projects[activeProject].tech.join(" · ")}</strong>
                 </div>
               </div>
