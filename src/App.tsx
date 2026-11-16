@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import portrait from "./assets/patrick.jpg";
 
 type IconName =
   | "home"
@@ -114,55 +115,67 @@ const navItems: { id: string; label: string; icon: IconName }[] = [
   { id: "contact", label: "Contact", icon: "message" },
 ];
 
+const contact = {
+  name: "Patrick Bootchot",
+  email: "patandjisoo@gmail.com",
+  phone: "(323) 703-9533",
+  phoneHref: "tel:+13237039533",
+  github: "https://github.com/looksorn789",
+  linkedin: "https://www.linkedin.com/in/pornthep-bootchot-35401225b/",
+  location: "Bellflower, California",
+};
+
 const experiences = [
   {
-    period: "2022 — NOW",
-    role: "Lead Full-Stack Developer",
-    company: "ORBITAL LABS",
-    text: "Leading end-to-end product engineering for high-growth platforms, from architecture and design systems to resilient payment infrastructure.",
+    period: "NOW",
+    role: "Full-Stack Developer",
+    company: "INTERVIEWPREPAI · IN DEVELOPMENT",
+    text: "Building an AI interview preparation platform that helps users get ready for software engineering interviews through AI-assisted practice sessions and personalized feedback.",
     impact:
-      "Improved checkout conversion by 24% and reduced deployment time from hours to minutes.",
-    tech: ["React", "Node.js", "Stripe", "MySQL"],
+      "AI-generated questions, behavioral and technical interview simulations, secure authentication, and progress tracking.",
+    tech: ["React", "ASP.NET Core", "C#", "SQL Server", "OpenAI API"],
   },
   {
-    period: "2020 — 2022",
-    role: "Software Engineer",
-    company: "NORTHSTAR DIGITAL",
-    text: "Built scalable commerce experiences, API integrations, and internal automation tools used across distributed teams.",
-    impact: "Automated 70% of repetitive order operations across three commerce brands.",
-    tech: ["Shopify", "Express", "REST APIs", "AWS"],
+    period: "CSULB",
+    role: "B.S. Computer Science",
+    company: "CALIFORNIA STATE UNIVERSITY, LONG BEACH",
+    text: "Built full-stack, distributed, and game projects as part of collaborative teams, from a student forum platform to a socket-based chat system and a Unity adventure game.",
+    impact:
+      "Shipped CourseHub, a Distributed Chatting System, and Keys To The Kingdom with classmates.",
+    tech: ["Flask", "React", "MongoDB", "Python", "Unity"],
   },
   {
-    period: "2018 — 2020",
-    role: "Web Developer",
-    company: "APOGEE STUDIO",
-    text: "Translated ambitious creative direction into responsive, accessible web products for early-stage startups.",
-    impact: "Shipped 18 production experiences with a consistent 95+ Lighthouse score.",
-    tech: ["JavaScript", "React", "MySQL", "CSS"],
+    period: "PERSONAL",
+    role: "Independent Projects",
+    company: "SELF-DIRECTED BUILDS",
+    text: "Designing and shipping my own apps to keep learning new technologies, from real-time multiplayer games to personal productivity tools.",
+    impact:
+      "Built an online multiplayer Idiot card game with room codes and synced gameplay, plus a live journaling web app.",
+    tech: ["C#", "React", "Vite", "Sockets", "CSS"],
   },
 ];
 
 const skillGroups = [
   {
-    title: "Payment Integrations",
+    title: "Languages & Engines",
     code: "01",
     accent: "cyan",
     items: [
       [
-        "Stripe",
-        "Designed subscription billing, secure checkout, webhook, and reconciliation systems.",
+        "C#",
+        "A primary language. Used for ASP.NET Core APIs, a real-time multiplayer card game server, and Unity gameplay.",
       ],
       [
-        "Authorize.Net",
-        "Implemented card-present and card-not-present payment flows for established merchants.",
+        "Python",
+        "A primary language. Used for Flask backends and a socket-based distributed chatting system.",
       ],
       [
-        "Payment Workflows",
-        "Built retry logic, refunds, invoices, taxes, and operational payment dashboards.",
+        "JavaScript",
+        "A primary language. Used to build React interfaces for nearly every project in my portfolio.",
       ],
       [
-        "Subscriptions",
-        "Created flexible plans, trials, upgrades, proration, and lifecycle automation.",
+        "Unity",
+        "Built Keys To The Kingdom, an adventure game with combat, dialogue, inventory, and puzzle mechanics.",
       ],
     ],
   },
@@ -173,39 +186,42 @@ const skillGroups = [
     items: [
       [
         "React",
-        "Built fast, accessible interfaces and scalable component systems for complex products.",
+        "Built modern, responsive interfaces for InterviewPrepAI, CourseHub, My Daily Journal, and more.",
+      ],
+      [
+        "ASP.NET Core",
+        "Building the backend for InterviewPrepAI with Entity Framework Core and secure authentication.",
+      ],
+      [
+        "Flask & Django",
+        "Developed Python web backends, including the API layer for the CourseHub student forum.",
       ],
       [
         "Node.js",
-        "Developed reliable services, background jobs, integrations, and real-time applications.",
-      ],
-      [
-        "Express.js",
-        "Created secure REST APIs with validation, observability, and clear service boundaries.",
-      ],
-      [
-        "MySQL",
-        "Modeled transactional data and optimized queries for high-traffic production systems.",
+        "Built JavaScript server-side services and APIs alongside React front ends.",
       ],
     ],
   },
   {
-    title: "Commerce & Automation",
+    title: "Data & Integrations",
     code: "03",
     accent: "amber",
     items: [
       [
-        "Shopify",
-        "Delivered custom storefronts, apps, checkout extensions, and operations tooling.",
+        "SQL Server",
+        "Modeling InterviewPrepAI's data with SQL Server and Entity Framework Core.",
       ],
       [
-        "API Integrations",
-        "Connected fragmented platforms with durable, observable integration layers.",
+        "MongoDB",
+        "Stored CourseHub's profiles, courses, and discussion threads with real-time updates via Supabase.",
       ],
-      ["AI Chatbots", "Created API-powered assistants grounded in product and support knowledge."],
       [
-        "Automation",
-        "Turned manual workflows into dependable systems that save teams hours each week.",
+        "PostgreSQL",
+        "Designed relational schemas and queries for full-stack web applications.",
+      ],
+      [
+        "OpenAI API",
+        "Integrating AI-generated interview questions and personalized feedback into InterviewPrepAI.",
       ],
     ],
   },
@@ -213,48 +229,89 @@ const skillGroups = [
 
 const projects = [
   {
-    name: "NOVA COMMERCE",
-    kicker: "Commerce platform",
+    name: "INTERVIEWPREPAI",
+    kicker: "AI interview prep",
     description:
-      "A composable commerce system built for rapid international growth and effortless operations.",
-    role: "Lead engineer & architecture",
-    tech: ["React", "Node.js", "Shopify", "Stripe"],
-    features: ["Multi-region storefront", "Subscription engine", "Real-time inventory"],
+      "A full-stack AI interview preparation platform currently in development. The application helps users prepare for software engineering interviews through AI-assisted practice sessions and personalized feedback.",
+    role: "Personal project · In development",
+    tech: ["React", "ASP.NET Core", "C#", "SQL Server", "Entity Framework Core", "OpenAI API"],
+    features: [
+      "AI-generated interview questions",
+      "Behavioral interview practice",
+      "Technical interview simulations",
+      "Secure authentication",
+      "Progress tracking",
+      "Responsive web interface",
+    ],
+    github: "https://github.com/looksorn789/InterviewPrepAi",
+    demo: "",
     color: "#7c82ff",
-    pos: ["17%", "25%"],
+    pos: ["6%", "10%"],
   },
   {
-    name: "PULSE PAY",
-    kicker: "Fintech infrastructure",
+    name: "COURSEHUB",
+    kicker: "Student forum",
     description:
-      "A unified payment operations dashboard that makes complex transaction data understandable.",
-    role: "Full-stack development",
-    tech: ["React", "Express", "MySQL", "Authorize.Net"],
-    features: ["Smart reconciliation", "Risk signals", "Automated reporting"],
+      "CourseHub is a student-driven forum platform where students can collaborate and assist one another with course materials.",
+    role: "Team project",
+    tech: ["Flask", "React", "MongoDB", "Supabase"],
+    features: ["Authentication", "Profiles", "Real-time updates", "Course discussions"],
+    github: "https://github.com/Elias0127/CourseHub",
+    demo: "https://youtu.be/SAqRzDYyfaU",
     color: "#75e6ff",
-    pos: ["62%", "15%"],
+    pos: ["44%", "5%"],
   },
   {
-    name: "ATLAS AI",
-    kicker: "Intelligent support",
+    name: "DISTRIBUTED CHAT",
+    kicker: "Real-time messaging",
     description:
-      "A context-aware product assistant that resolves questions and connects users to the right expert.",
-    role: "Product engineer",
-    tech: ["Node.js", "REST APIs", "React", "AI"],
-    features: ["Semantic search", "Human handoff", "Insight dashboard"],
+      "A distributed communication system where users can join chat rooms and communicate in real time using sockets.",
+    role: "Team project",
+    tech: ["Python", "Socket Programming"],
+    features: ["Join chat rooms", "Broadcast messages", "Connected client list", "Stop server/client"],
+    github: "https://github.com/MNRainDrop/CECS-327-Project1",
+    demo: "",
     color: "#ffbd6d",
-    pos: ["77%", "56%"],
+    pos: ["72%", "24%"],
   },
   {
-    name: "FLOWSTATE",
-    kicker: "Workflow automation",
+    name: "IDIOT CARD GAME",
+    kicker: "Multiplayer card game",
     description:
-      "A visual automation layer connecting sales, fulfillment, and customer operations.",
-    role: "Design & engineering",
-    tech: ["React", "Node.js", "Webhooks", "MySQL"],
-    features: ["Visual workflows", "Event replay", "Live monitoring"],
+      "Online multiplayer implementation of the card game Idiot featuring special cards and synchronized gameplay.",
+    role: "Personal project",
+    tech: ["C#", "React", "Vite", "Sockets"],
+    features: ["Host transfer", "Room codes", "Real-time gameplay", "Special card abilities"],
+    github: "https://github.com/looksorn789/Idiot-Card-Game",
+    demo: "",
     color: "#b891ff",
-    pos: ["32%", "70%"],
+    pos: ["16%", "48%"],
+  },
+  {
+    name: "MY DAILY JOURNAL",
+    kicker: "Personal journaling",
+    description:
+      "A personal journaling web application focused on organization and self-expression.",
+    role: "Personal project",
+    tech: ["React", "CSS"],
+    features: ["Journal entries", "Mood board", "Calendar", "Dark mode", "Authentication"],
+    github: "https://github.com/looksorn789/My-Daily-Journal",
+    demo: "https://looksorn789.github.io/My-Daily-Journal/",
+    color: "#ff8fc7",
+    pos: ["50%", "44%"],
+  },
+  {
+    name: "KEYS TO THE KINGDOM",
+    kicker: "Unity adventure game",
+    description:
+      "A Unity adventure game featuring combat, inventory management, and puzzle solving.",
+    role: "Team project",
+    tech: ["Unity", "C#"],
+    features: ["Combat", "Dialogue", "Inventory", "Doors & keys"],
+    github: "https://github.com/zsanchez6/KeysToTheKingdom",
+    demo: "https://youtu.be/e6bru3lDydA",
+    color: "#8dffb8",
+    pos: ["68%", "70%"],
   },
 ];
 
@@ -351,6 +408,20 @@ export default function App() {
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "");
+    const body = [
+      String(data.get("message") ?? ""),
+      "",
+      `— ${name}`,
+      String(data.get("email") ?? ""),
+      String(data.get("phone") ?? ""),
+    ]
+      .filter((line, i) => i < 3 || line)
+      .join("\n");
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
+      `Portfolio inquiry from ${name}`,
+    )}&body=${encodeURIComponent(body)}`;
     setSent(true);
     e.currentTarget.reset();
     window.setTimeout(() => setSent(false), 5000);
@@ -378,10 +449,10 @@ export default function App() {
 
       <header className="topbar">
         <button className="monogram" onClick={() => scrollTo("home")} aria-label="Back to home">
-          AM<span>.</span>
+          PB<span>.</span>
         </button>
         <div className="availability">
-          <i /> AVAILABLE FOR SELECT PROJECTS <span>/ 2025</span>
+          <i /> OPEN TO ENTRY-LEVEL ROLES <span>/ 2026</span>
         </div>
         <button
           className="mobile-menu"
@@ -425,12 +496,12 @@ export default function App() {
           </h1>
           <div className="hero-meta">
             <div>
-              <strong>ALEX MORGAN</strong>
+              <strong>PATRICK BOOTCHOT</strong>
               <span>FULL-STACK DEVELOPER</span>
             </div>
             <p>
-              I engineer digital products where ambitious ideas meet robust, human-centered
-              technology.
+              I build modern, responsive web applications that combine clean design with practical
+              functionality.
             </p>
           </div>
           <div className="hero-actions">
@@ -459,47 +530,48 @@ export default function App() {
               <span>BUILDER</span>
             </div>
             <div className="portrait-frame">
-              <img
-                src="https://images.unsplash.com/photo-1760004941335-6feccb7f800a?crop=faces&fit=crop&fm=jpg&q=85&w=900&h=1100"
-                alt="Alex Morgan, full-stack developer"
-              />
+              <img src={portrait} alt="Patrick Bootchot, full-stack developer" />
               <div className="portrait-shade" />
             </div>
-            <span className="orbit-label label-one">DESIGN THINKING</span>
-            <span className="orbit-label label-two">DEEP FOCUS</span>
-            <span className="orbit-label label-three">01° 24′ N</span>
+            <span className="orbit-label label-one">PROBLEM SOLVER</span>
+            <span className="orbit-label label-two">LIFELONG LEARNER</span>
+            <span className="orbit-label label-three">33° 53′ N</span>
           </div>
           <div className="about-copy">
-            <SectionTitle eyebrow="MY PLANET" title="ALEX MORGAN" />
+            <SectionTitle eyebrow="MY PLANET" title="PATRICK BOOTCHOT" />
             <p className="about-lead reveal">
-              I turn complex systems into <em>clear, useful experiences.</em>
+              I build software that <em>delivers real value.</em>
             </p>
             <div className="bio-grid reveal">
               <p>
-                I'm a full-stack developer with 7+ years of experience building products that
-                balance thoughtful design with dependable engineering. I work across the entire
-                product orbit—from first sketch to production scale.
+                Hi! I'm Patrick (Pornthep Bootchot), a full-stack software developer with a
+                Bachelor's degree in Computer Science from California State University, Long Beach.
+                I've built front-end and back-end applications with React, ASP.NET Core, Flask,
+                Node.js, and Django, backed by databases like MongoDB and PostgreSQL. My primary
+                languages are C#, Python, and JavaScript.
               </p>
               <p>
-                My approach is equal parts curiosity and precision: understand the real problem,
-                remove what isn't essential, then craft a solution people trust and enjoy using.
+                I enjoy learning new technologies, solving challenging problems, and creating
+                software that delivers real value. I'm currently seeking an entry-level software
+                engineering opportunity where I can keep growing as a developer while contributing
+                to meaningful projects.
               </p>
             </div>
             <div className="fact-row reveal">
               <div>
                 <small>CURRENTLY</small>
-                <strong>Lead Developer</strong>
-                <span>Orbital Labs</span>
+                <strong>Building InterviewPrepAI</strong>
+                <span>Open to entry-level roles</span>
               </div>
               <div>
                 <small>BASED IN</small>
-                <strong>Austin, TX</strong>
-                <span>Working globally</span>
+                <strong>Bellflower, CA</strong>
+                <span>Southern California</span>
               </div>
               <div>
-                <small>OFFLINE</small>
-                <strong>Photography</strong>
-                <span>Hiking & astronomy</span>
+                <small>EDUCATION</small>
+                <strong>B.S. Computer Science</strong>
+                <span>CSULB</span>
               </div>
             </div>
           </div>
@@ -511,7 +583,7 @@ export default function App() {
         <SectionTitle
           eyebrow="PROFESSIONAL ORBIT"
           title="MISSIONS & MILESTONES"
-          copy="A journey through the teams, systems, and products that shaped my practice."
+          copy="A journey through the education, teams, and projects that shaped me as a developer."
         />
         <div className="timeline">
           <div className="trajectory" />
@@ -585,7 +657,7 @@ export default function App() {
             <h3>{selectedSkill[0]}</h3>
             <p>{selectedSkill[1]}</p>
             <div className="detail-signal">
-              <span /> PRODUCTION EXPERIENCE
+              <span /> HANDS-ON PROJECT EXPERIENCE
             </div>
           </aside>
         </div>
@@ -605,8 +677,8 @@ export default function App() {
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            <path d="M170 130 620 80 770 300 320 375 170 130" />
-            <path d="m620 80-300 295" />
+            <path d="M72 64 452 38 732 138 692 382 512 245 172 266 72 64" />
+            <path d="m452 38 60 207" />
           </svg>
           {projects.map((project, i) => (
             <button
@@ -630,7 +702,8 @@ export default function App() {
             </button>
           ))}
           <div className="galaxy-caption">
-            INTERACTIVE STAR MAP <span>04 DISCOVERIES</span>
+            INTERACTIVE STAR MAP{" "}
+            <span>{String(projects.length).padStart(2, "0")} DISCOVERIES</span>
           </div>
         </div>
       </section>
@@ -645,14 +718,14 @@ export default function App() {
               title="LET'S BUILD SOMETHING OUT OF THIS WORLD."
             />
             <p className="reveal">
-              Have an ambitious product, a complex integration, or a team that needs another curious
-              mind? My channel is open.
+              Whether you're looking for a software developer, have a project in mind, or simply
+              want to connect, I'd be happy to hear from you.
             </p>
             <div className="opportunity-list reveal">
               {[
+                "Entry-level software engineering roles",
                 "Full-time opportunities",
-                "Part-time collaborations",
-                "Contract & freelance projects",
+                "Project collaborations",
               ].map((item) => (
                 <span key={item}>
                   <i />
@@ -660,9 +733,14 @@ export default function App() {
                 </span>
               ))}
             </div>
-            <a className="direct-email reveal" href="mailto:hello@alexmorgan.dev">
+            <a className="direct-email reveal" href={`mailto:${contact.email}`}>
               <small>DIRECT CHANNEL</small>
-              <strong>hello@alexmorgan.dev</strong>
+              <strong>{contact.email}</strong>
+              <Icon name="arrow" />
+            </a>
+            <a className="direct-email reveal" href={contact.phoneHref}>
+              <small>PHONE · {contact.location.toUpperCase()}</small>
+              <strong>{contact.phone}</strong>
               <Icon name="arrow" />
             </a>
           </div>
@@ -704,7 +782,7 @@ export default function App() {
             <button className="button primary submit-button" type="submit">
               {sent ? (
                 <>
-                  <Icon name="check" /> MESSAGE RECEIVED
+                  <Icon name="check" /> EMAIL DRAFT OPENED
                 </>
               ) : (
                 <>
@@ -714,7 +792,8 @@ export default function App() {
             </button>
             {sent && (
               <p className="success" role="status">
-                Transmission received. I'll respond within 1–2 business days.
+                Your email app should open with your message ready to send. If it didn't, email me
+                directly at {contact.email}.
               </p>
             )}
           </form>
@@ -723,21 +802,21 @@ export default function App() {
 
       <footer>
         <div className="monogram">
-          AM<span>.</span>
+          PB<span>.</span>
         </div>
         <p>
           DESIGNED & ENGINEERED WITH CURIOSITY
           <br />
-          <span>© 2025 ALEX MORGAN</span>
+          <span>© 2026 PATRICK BOOTCHOT</span>
         </p>
         <div className="socials">
-          <a href="mailto:hello@alexmorgan.dev" aria-label="Email">
+          <a href={`mailto:${contact.email}`} aria-label="Email">
             <Icon name="mail" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a href={contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <Icon name="linkedin" />
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <a href={contact.github} target="_blank" rel="noreferrer" aria-label="GitHub">
             <Icon name="github" />
           </a>
         </div>
@@ -786,7 +865,7 @@ export default function App() {
               <p>{projects[activeProject].description}</p>
               <div className="modal-meta">
                 <div>
-                  <span>MY ROLE</span>
+                  <span>PROJECT TYPE</span>
                   <strong>{projects[activeProject].role}</strong>
                 </div>
                 <div>
@@ -803,10 +882,12 @@ export default function App() {
                 ))}
               </div>
               <div className="modal-actions">
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  VIEW LIVE <Icon name="external" />
-                </a>
-                <a href="https://github.com" target="_blank" rel="noreferrer">
+                {projects[activeProject].demo && (
+                  <a href={projects[activeProject].demo} target="_blank" rel="noreferrer">
+                    LIVE DEMO <Icon name="external" />
+                  </a>
+                )}
+                <a href={projects[activeProject].github} target="_blank" rel="noreferrer">
                   SOURCE <Icon name="github" />
                 </a>
               </div>

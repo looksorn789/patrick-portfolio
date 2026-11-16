@@ -1540,15 +1540,31 @@ footer > button {
   .project-star small {
     display: none;
   }
+  .project-star strong {
+    white-space: normal;
+  }
+  .project-star:nth-of-type(odd) {
+    left: 2% !important;
+  }
+  .project-star:nth-of-type(even) {
+    left: 52% !important;
+  }
+  .project-star:nth-of-type(1) {
+    top: 4% !important;
+  }
   .project-star:nth-of-type(2) {
-    left: 55% !important;
+    top: 16% !important;
   }
   .project-star:nth-of-type(3) {
-    left: 58% !important;
-    top: 60% !important;
+    top: 32% !important;
   }
   .project-star:nth-of-type(4) {
-    left: 15% !important;
+    top: 44% !important;
+  }
+  .project-star:nth-of-type(5) {
+    top: 60% !important;
+  }
+  .project-star:nth-of-type(6) {
     top: 72% !important;
   }
   .contact-section {
